@@ -1,0 +1,29 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww18240\viewh12540\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+\
+\
+Instructions:\
+\
+Line that is executed in terminal to run Mqtt server\
+\pard\pardeftab720\partightenfactor0
+\cf0 \expnd0\expndtw0\kerning0
+mosquito_sub -h localhost -t \'93readingserver\'94\
+\
+Terminal command to execute python scripts\
+\
+Before running python scripts on RPi, make sure MQTT server is running. This is done through following command:\
+mosquito_sub -h localhost -t \'93readingserver\'94\
+\'a0\
+mqtt_subscribing.py script listens to the mqtt broker on localhost:1883 and fetches data from topic, \'93readingserver\'94 and logs received data on the screen. To start this script, execute following command on the terminal (make sure you are in the same directory where your scripts are):\
+python3 mqtt_subsctibing.py\
+\'a0\
+uart_to_mqtt.py fetches data received on UART and decodes it in utf-8 format. The script then publishes the data over to the MQTT topic on localhost at port 1883. To run this script execute following command on the terminal (make sure you are in the same directory where your scripts are):\
+python3 uart_to_mqtt.py\
+\
+}
